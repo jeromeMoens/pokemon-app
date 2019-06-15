@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { Pokemon } from './pokemon';
+import { POKEMONS } from './mock-pokemon';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  selector: 'pokemon-app',
+  templateUrl: `./app.component.html`,
 })
 export class AppComponent {
-  title = 'pokemon-app-cli';
+  private title: string = 'pokemon-app';
 }
