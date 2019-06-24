@@ -13,6 +13,7 @@ import { BorderCardDirective } from './border-card.directive';
 import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
 import { PokemonSearchComponent } from './search-pokemon.component';
 import { LoaderComponent } from '../loader.component';
+import { AuthGuard } from '../auth-guard.service';
 
 @NgModule({
 	imports: [
@@ -30,6 +31,6 @@ import { LoaderComponent } from '../loader.component';
 		PokemonSearchComponent,
 		LoaderComponent
 	],
-	providers: [PokemonsService]
+	providers: [PokemonsService, AuthGuard]
 })
 export class PokemonsModule { }
