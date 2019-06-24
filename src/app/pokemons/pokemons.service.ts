@@ -26,6 +26,29 @@ export class PokemonsService {
       }
     }
 
+    deletePokemon(pokemon: Pokemon): Observable<Pokemon> {
+      const url = `${this.pokemonsUrl}/${pokemon.id}`;
+      const httpOptions = {
+        headers: new HttpHeaders({'Content-Type': 'application/json'})
+      };
+
+      return this.http.delete<Pokemon>(url, httpOptions).pipe(
+        tap(_ => this.log(`deleted pokemon id=${pokemon.id}`)),
+        catchError(this.handleError<Pokemon>('deletePokemon'))
+      );
+    }
+
+    updatePokemon(pokemon: Pokemon): Observable<Pokemon> {
+      const httpOptions = {
+        headers: new HttpHeaders({'content-Type': 'application/json'})
+      };
+
+      return this.http.put(this.pokemonsUrl, pokemon, httpOptions).pipe(
+        tap(_ => this.log(`updated pokemon id=${pokemon.id}`)),
+        catchError(this.handleError<any>('updatedPokemon'))
+      )
+    }
+
     // Retourne tous les pokémons
     getPokemons(): Observable<Pokemon[]> {
       return this.http.get<Pokemon[]>(this.pokemonsUrl).pipe(
