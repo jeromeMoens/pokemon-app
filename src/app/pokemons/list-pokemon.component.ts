@@ -10,8 +10,8 @@ import { PokemonsService } from './pokemons.service';
 })
 export class ListPokemonComponent implements OnInit { 
   
-  private pokemons: Pokemon[];
-  private title: string = "Liste de Pokémons";
+  pokemons: Pokemon[];
+  title: string = "Liste de Pokémons";
 
   constructor (private router: Router, private pokemonsService: PokemonsService) {}
 

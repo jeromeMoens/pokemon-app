@@ -7,5 +7,5 @@ import { POKEMONS } from './pokemons/mock-pokemon';
   templateUrl: `./app.component.html`,
 })
 export class AppComponent {
-  private title: string = 'pokemon-app';
+  title: string = 'pokemon-app';
 }
